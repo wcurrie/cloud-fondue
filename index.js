@@ -3,8 +3,9 @@
 const nameit = require('./nameit');
 
 exports.handler = (event, context, callback) => {
-  let names = (event.names === undefined ? ['CFN'] : event.names.split(' '));
-  let count = (event.count === undefined ? 1 : +event.count);
+  console.log("Received", event);
+  let names = (!event.queryStringParameters || event.queryStringParameters.names === undefined ? ['CFN'] : event.queryStringParameters.names.split(' '));
+  let count = (!event.queryStringParameters || event.queryStringParameters.count === undefined ? 1 : +event.queryStringParameters.count);
   let expanded = [];
   names.forEach((name) => {
     for (let i = 0; i < count; i ++) {
@@ -14,5 +15,9 @@ exports.handler = (event, context, callback) => {
       });
     }
   });
-  callback(null, expanded);
+  callback(null, {
+    statusCode: 200,
+    body: JSON.stringify(expanded),
+    headers: { 'Content-Type': 'application/json' }
+  });
 };

@@ -32,3 +32,9 @@ Seems `aws cloudformation package` doesn't like contents of node_modules/.bin di
 Just invoking callback(null, {}) is not enough: https://forums.aws.amazon.com/thread.jspa?threadID=239688
 
     Execution failed due to configuration error: Malformed Lambda proxy response
+    
+Understand how api gateway forwards through query string parameters: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-set-up-simple-proxy.html#api-gateway-simple-proxy-for-lambda-input-format
+    
+Web text to speech
+
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance("Cantabile Fossicker Noumenality"))

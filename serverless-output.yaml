@@ -2,12 +2,12 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   TestFunction:
     Properties:
-      CodeUri: s3://cloud-service-namer/5831e5633b9c32807027fb767c6a0553
+      CodeUri: s3://cloud-service-namer/c3c47d3979db01df13b2003ae539a823
       Events:
         GetResource:
           Properties:
-            Path: /names
             Method: get
+            Path: /names
           Type: Api
       Handler: index.handler
       Runtime: nodejs6.10
