@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  TestFunction:
+    Properties:
+      CodeUri: s3://cloud-service-namer/5831e5633b9c32807027fb767c6a0553
+      Events:
+        GetResource:
+          Properties:
+            Path: /names
+            Method: get
+          Type: Api
+      Handler: index.handler
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
